@@ -1,0 +1,34 @@
+Package: pkgutils
+Title: Functions for building functions
+Version: 0.0.0.9000
+Authors@R: 
+    person("Rob", "Challen", , "rob.challen@bristol.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-5504-7768"))
+Description: A suite of tools for helping in function and package development.
+  This includes functions that check variables for consistency, or help 
+  parse out inputs to functions. This has a particular focus on inputs that
+  use formula or `tidyselect` interfaces to define the parts of a dataframe
+  that we might be interested in.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    rlang,
+    stringr,
+    tidyselect,
+    devtools,
+    fs,
+    yaml,
+    tibble,
+    dplyr,
+    purrr,
+    tidyr,
+    here,
+    magrittr
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+URL: https://bristol-vaccine-centre.github.io/pkgutils/index.html, https://github.com/bristol-vaccine-centre/pkgutils
+BugReports: https://github.com/bristol-vaccine-centre/pkgutils/issues
+Depends: 
+    R (>= 3.4.0)

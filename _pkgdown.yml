@@ -1,0 +1,21 @@
+url: ~
+template:
+  bootstrap: 5
+reference:
+- title: "Code manipulation functions"
+  desc: >
+    Functions for fixing code issues and generating code
+  contents: 
+  - fix_unqualified_fns
+- title: "Checking inputs"
+  desc: "Functions for making sure that function inputs are consistent"
+  contents:
+  - recycle
+  - check_consistent
+  - resolve_missing
+- title: "Others"
+  desc: "Miscellaneous"
+  contents:
+  - get_fn_name
+
+
