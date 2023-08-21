@@ -37,11 +37,13 @@ recycle = function(..., .min=1) {
   
   env = rlang::caller_env()
   
-  for (i in seq_along(dots)) {
-    x = dots[[i]]
-    name = names[[i]]
-    if (length(x) == 1) 
-      env[[name]] = rep(x,ml)
+  if (ml>1) {
+    for (i in seq_along(dots)) {
+      x = dots[[i]]
+      name = names[[i]]
+      if (length(x) == 1) 
+        env[[name]] = rep(x,ml)
+    }
   }
   
   return(ml)
