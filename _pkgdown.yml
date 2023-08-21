@@ -13,9 +13,12 @@ reference:
   - recycle
   - check_consistent
   - resolve_missing
+  - check_integer
+  - check_numeric
 - title: "Others"
   desc: "Miscellaneous"
   contents:
   - get_fn_name
+  - escalateWarnings
 
 

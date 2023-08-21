@@ -30,6 +30,7 @@
 resolve_missing = function(..., .env = rlang::caller_env()) {
   exprs = rlang::enexprs(...)
   env = .env
+  #TODO: check in case everything is null
   for (k in seq_along(exprs)) {
     deferred = FALSE
     for (i in seq_along(exprs)) {
@@ -39,6 +40,9 @@ resolve_missing = function(..., .env = rlang::caller_env()) {
         tmp = env[[focus]]
         if (is.null(tmp)) {
           params = all.vars(exprs[[i]])
+          # This version will evaluate when NULL values are present
+          # if (all(sapply(params, function(x) exists(x,env,inherits = FALSE)))) {
+          # This will not:
           if (!any(sapply(params, function(x) is.null(env[[x]])))) {
             env[[focus]] = eval(exprs[[i]], env)
           } else {

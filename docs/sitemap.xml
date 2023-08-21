@@ -19,6 +19,15 @@
     <loc>/reference/check_consistent.html</loc>
   </url>
   <url>
+    <loc>/reference/check_integer.html</loc>
+  </url>
+  <url>
+    <loc>/reference/check_numeric.html</loc>
+  </url>
+  <url>
+    <loc>/reference/escalateWarnings.html</loc>
+  </url>
+  <url>
     <loc>/reference/fix_unqualified_fns.html</loc>
   </url>
   <url>
