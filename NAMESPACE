@@ -2,6 +2,9 @@
 
 export("%>%")
 export(check_consistent)
+export(check_integer)
+export(check_numeric)
+export(escalateWarnings)
 export(fix_unqualified_fns)
 export(get_fn_name)
 export(recycle)
