@@ -18,7 +18,7 @@
 fix_unqualified_fns = function(rDirectories = c(here::here("R"),here::here("vignettes"),here::here("tests/testthat")), description = here::here("DESCRIPTION"), dry_run = TRUE ) {
   
   devtools::load_all(rDirectories[[1]])
-  path = package = function_name = f = generic = content.old = name = value = content = changed = NULL
+  matches = path = package = function_name = f = generic = content.old = name = value = content = changed = NULL
   
   files = dplyr::bind_rows(lapply(rDirectories, fs::dir_info)) %>% dplyr::filter(fs::path_ext(path) %in% c("R","Rmd"))
   dMap = yaml::read_yaml(description)
@@ -33,7 +33,7 @@ fix_unqualified_fns = function(rDirectories = c(here::here("R"),here::here("vign
     dplyr::mutate(function_name = list(ls(envir = asNamespace(package)))) %>%
     tidyr::unnest(function_name) %>%
     dplyr::mutate( f = purrr::map2(function_name, package, function(f,p) {
-      tryCatch(getFromNamespace(f,p), error = function(e) {function(){}})
+      tryCatch(utils::getFromNamespace(f,p), error = function(e) {function(){}})
     })) %>%
     dplyr::mutate( generic = .isGeneric(f)) %>%
     dplyr::select(-f)
@@ -43,7 +43,7 @@ fix_unqualified_fns = function(rDirectories = c(here::here("R"),here::here("vign
   
   packageMap2 = packageMap %>% dplyr::group_by(function_name) %>%
     dplyr::mutate(package = ordered(package,levels = c("base",packages))) %>%
-    dplyr::arrange(desc(generic),package) %>%
+    dplyr::arrange(dplyr::desc(generic),package) %>%
     dplyr::filter(dplyr::row_number()==1) %>%
     dplyr::filter(package != "base") %>%
     dplyr::filter(!function_name %in% theseFunctions) %>%

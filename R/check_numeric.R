@@ -1,4 +1,4 @@
-#' Checks a set of variables can be coerced to integer and coerces them
+#' Checks a set of variables can be coerced to numeric and coerces them
 #' 
 #' N.B. This only works for the specific environment (to prevent weird side effects)
 #'

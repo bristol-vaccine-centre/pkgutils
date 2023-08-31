@@ -7,6 +7,7 @@ reference:
     Functions for fixing code issues and generating code
   contents: 
   - fix_unqualified_fns
+  - doc_formals
 - title: "Checking inputs"
   desc: "Functions for making sure that function inputs are consistent"
   contents:

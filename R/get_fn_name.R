@@ -38,7 +38,7 @@
 get_fn_name = function(fn = rlang::caller_fn(), fmt="%s", collapse="/") {
   if (is.null(fn)) return("<unknown>")
   fnenv= rlang::fn_env(fn)
-  fns = as.character(lsf.str(envir=fnenv))
+  fns = as.character(utils::lsf.str(envir=fnenv))
   matches = sapply(fns, function(x) isTRUE(all.equal(get(x,envir = fnenv),fn)))
   if (any(matches)) {
     tmp = trimws(fns[matches])

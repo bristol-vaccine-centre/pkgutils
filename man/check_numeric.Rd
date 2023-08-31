@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_numeric.R
 \name{check_numeric}
 \alias{check_numeric}
-\title{Checks a set of variables can be coerced to integer and coerces them}
+\title{Checks a set of variables can be coerced to numeric and coerces them}
 \usage{
 check_numeric(
   ...,

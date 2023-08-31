@@ -1,6 +1,6 @@
 Package: pkgutils
 Title: Functions for building functions
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R: 
     person("Rob", "Challen", , "rob.challen@bristol.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5504-7768"))
@@ -15,8 +15,11 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     rlang,
+    utils,
     stringr,
-    tidyselect,
+    glue,
+    readr,
+    usethis,
     devtools,
     fs,
     yaml,
@@ -26,6 +29,8 @@ Imports:
     tidyr,
     here,
     magrittr
+Suggests:
+    knitr
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 URL: https://bristol-vaccine-centre.github.io/pkgutils/index.html, https://github.com/bristol-vaccine-centre/pkgutils

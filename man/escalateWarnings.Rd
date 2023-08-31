@@ -16,5 +16,5 @@ the evaluated expression of an error
 Cause warnings to create an error
 }
 \examples{
-escalateWarnings(as.integer("ASDAS"))
+try(escalateWarnings(as.integer("ASDAS")))
 }

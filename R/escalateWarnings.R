@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-#' escalateWarnings(as.integer("ASDAS"))
+#' try(escalateWarnings(as.integer("ASDAS")))
 escalateWarnings = function(expr) {
   withCallingHandlers(
     expr, 
