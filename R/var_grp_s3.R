@@ -24,11 +24,6 @@
 #' # print.var_grp_df(tmp)
 #' glimpse.var_grp_df(tmp)
 #' 
-#' tmp2 = as.var_grp_df(iris, 
-#'   c(Species), 
-#'   tidyselect::starts_with("Sepal"), 
-#'   tidyselect::starts_with("Petal"))
-#' glimpse.var_grp_df(tmp2)
 as.var_grp_df = function(df, z, y, x) {
   
   df = tibble::as_tibble(df)

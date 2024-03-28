@@ -17,7 +17,7 @@ var_group_nest = function(var_grp_df, .subgroup = FALSE, .key="data") {
   vg = var_grps(var_grp_df)
   grps = vg$z
   attr(var_grp_df,"z") = list()
-  x = var_grp_df %>% dplyr::ungroup() %>% tidyr::nest(.by = c(!!!grps), .key)
+  x = var_grp_df %>% dplyr::ungroup() %>% tidyr::nest(.by = c(!!!grps), .key=.key)
   if (.subgroup) x = x %>% dplyr::mutate(data = purrr::map(data, ~ .x %>% dplyr::group_by(!!!vg$y)))
   return(x)
 }
@@ -42,7 +42,7 @@ var_subgroup_nest = function(var_grp_df, .key="data") {
   vg = var_grps(var_grp_df)
   grps = c(vg$z,vg$y)
   attr(var_grp_df,"x") = as.symbol(.key)
-  x = var_grp_df %>% dplyr::ungroup() %>% tidyr::nest(.by = c(!!!grps), .key)
+  x = var_grp_df %>% dplyr::ungroup() %>% tidyr::nest(.by = c(!!!grps), .key = .key)
   x = x %>% dplyr::mutate(data = purrr::map(data, ~ .x %>% dplyr::group_by(!!!vg$y)))
   return(x)
 }

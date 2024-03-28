@@ -36,12 +36,12 @@ within a function within a package where the comparisons are pre-defined, and
 the \code{var_group} framework is hidden from the user.
 }
 \examples{
-iris \%>\% group_by(Species) \%>\% var_group(~ .) \%>\%
+iris \%>\% dplyr::group_by(Species) \%>\% var_group(~ .) \%>\%
   var_group_compare(
     correlation = cor
   )
   
-diamonds \%>\% var_group(tidyselect::where(is.factor)) \%>\% 
+ggplot2::diamonds \%>\% var_group(tidyselect::where(is.factor)) \%>\% 
   var_group_compare(
     chi.p.value = ~ stats::chisq.test(.x,.y)$p.value
   )

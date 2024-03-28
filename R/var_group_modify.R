@@ -22,7 +22,7 @@
 #' tmp2 = tmp %>% var_group_modify(
 #'   ~ {
 #'     Sys.sleep(0.02)
-#'     return(.x %>% count())
+#'     return(.x %>% dplyr::count())
 #'   },
 #'   .progress=TRUE
 #' )

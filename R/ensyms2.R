@@ -18,6 +18,7 @@
 #'
 #' @concept var_group
 #'
+#' @export
 #' @examples
 #' 
 #' # TODO: convert these to tests
@@ -49,20 +50,15 @@
 #'
 #' # injection support:
 #' subs = ensyms2(c("Sepal.Width", "Species", "Sepal.Length"))
+#' 
 #' # this must be injected as a single thing as the parameter x but actually it 
 #' # turns out to be just the same as supplying a list of symbols as the bare 
 #' # parameter
-#' eg(iris,!!subs)
-#' ensyms2(!!subs)
+#' # eg(iris,!!subs)
+#' # ensyms2(!!subs)
 #' # same as:
-#' eg(iris,subs)
-#' ensyms2(subs)
-#' 
-#' eg2 = function(vars, ...) {
-#'   vars = ensyms2(vars, ..., .tidy=FALSE)
-#'   print(vars)
-#' }
-#' eg2(tidyselect::starts_with("Sepal"))
+#' # eg(iris,subs)
+#' # ensyms2(subs)
 #' 
 ensyms2 = function(x, .as = c("symbol","character"), .side= c("rhs","lhs"), .tidy = FALSE) {
   
@@ -102,8 +98,10 @@ ensyms2 = function(x, .as = c("symbol","character"), .side= c("rhs","lhs"), .tid
   if (!isFALSE(.tidy)) {
     if (is.data.frame(.tidy)) {
       .df = .tidy
+      .tidy = TRUE
     } else {
       .df = .search_call_stack()
+      .tidy = TRUE
     }
   }
   

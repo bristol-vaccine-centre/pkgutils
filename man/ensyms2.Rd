@@ -63,20 +63,15 @@ eg(iris, c(~ Sepal.Width + Sepal.Length, Petal.Width + Petal.Length))
 
 # injection support:
 subs = ensyms2(c("Sepal.Width", "Species", "Sepal.Length"))
+
 # this must be injected as a single thing as the parameter x but actually it 
 # turns out to be just the same as supplying a list of symbols as the bare 
 # parameter
-eg(iris,!!subs)
-ensyms2(!!subs)
+# eg(iris,!!subs)
+# ensyms2(!!subs)
 # same as:
-eg(iris,subs)
-ensyms2(subs)
-
-eg2 = function(vars, ...) {
-  vars = ensyms2(vars, ..., .tidy=FALSE)
-  print(vars)
-}
-eg2(tidyselect::starts_with("Sepal"))
+# eg(iris,subs)
+# ensyms2(subs)
 
 }
 \concept{var_group}

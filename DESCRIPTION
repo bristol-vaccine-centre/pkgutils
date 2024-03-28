@@ -31,7 +31,8 @@ Suggests:
     knitr,
     pillar,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    ggplot2
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 URL: https://bristol-vaccine-centre.github.io/pkgutils/index.html, https://github.com/bristol-vaccine-centre/pkgutils

@@ -15,17 +15,11 @@
 #'
 #' @examples
 #' # use openSSL if installed:
-#' fn = optional_fn("openssl", "md5", alt = digest::digest)
+#' fn = optional_fn("openssl", "md5", alt = ~ digest::digest(.x, "md5"))
+#' 
 #' as.character(fn(as.raw(c(1,2,3))))
 #' 
-#' fn2 = optional_fn("asdasdadsda::asdasdasd")
-#' try({
-#'   # block to execute if asdasdadsda::asdasdasd() is available
-#'   fn2()
-#' }) 
-#' # add silent=TRUE to hide error message
-#' 
-#' # this function does not exists and so the alternative is used instead.
+#' #' # this function does not exists and so the alternative is used instead.
 #' fn3 = optional_fn("asdasdadsda::asdasdasd", ~ message("formula alternative"))
 #' fn3()
 #' 

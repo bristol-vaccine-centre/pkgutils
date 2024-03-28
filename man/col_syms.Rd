@@ -16,6 +16,6 @@ a list of symbols
 Column names as symbols
 }
 \examples{
-intersect(colsyms(iris), ensyms2(tidyselect::starts_with("S"), .df=iris))
+intersect(col_syms(iris), ensyms2(tidyselect::starts_with("S"), .tidy=iris))
 }
 \concept{var_group}
