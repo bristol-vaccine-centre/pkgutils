@@ -1,6 +1,6 @@
 Package: pkgutils
 Title: Functions for building functions
-Version: 0.0.0.9005
+Version: 0.1.0
 Authors@R: 
     person("Rob", "Challen", , "rob.challen@bristol.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5504-7768"))
@@ -18,19 +18,20 @@ Imports:
     utils,
     stringr,
     glue,
-    readr,
-    usethis,
-    devtools,
-    fs,
-    yaml,
     tibble,
     dplyr,
     purrr,
     tidyr,
-    here,
-    magrittr
+    magrittr,
+    lubridate,
+    tidyselect,
+    digest,
+    cli
 Suggests:
-    knitr
+    knitr,
+    pillar,
+    rmarkdown,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 URL: https://bristol-vaccine-centre.github.io/pkgutils/index.html, https://github.com/bristol-vaccine-centre/pkgutils

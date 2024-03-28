@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">pkgutils</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9005</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +20,12 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/consistency.html">Consistency checking with pkgutils</a>
+  </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -38,7 +44,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Checks a set of variables can be coerced to numeric and coerces them</h1>
-      <small class="dont-index">Source: <a href="https://github.com/bristol-vaccine-centre/pkgutils/blob/HEAD/R/check_numeric.R" class="external-link"><code>R/check_numeric.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/bristol-vaccine-centre/pkgutils/blob/HEAD/R/params_check_numeric.R" class="external-link"><code>R/params_check_numeric.R</code></a></small>
       <div class="d-none name"><code>check_numeric.Rd</code></div>
     </div>
 
@@ -86,10 +92,10 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">c</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dfsfs"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">check_numeric</span><span class="op">(</span><span class="va">c</span>,<span class="va">d</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>1) 'd' is not defined in this context</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> 2) 'mean' is not defined in this context</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in .check_framework(..., predicate = predicate, convert = convert,  : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1) `c` is non-numeric (non numeric format).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2) 'd' is not defined in this context</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3) 'mean' is not defined in this context</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

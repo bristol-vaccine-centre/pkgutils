@@ -10,13 +10,25 @@
     <loc>/LICENSE.html</loc>
   </url>
   <url>
+    <loc>/articles/consistency.html</loc>
+  </url>
+  <url>
+    <loc>/articles/index.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/as.var_grp_df.html</loc>
+  </url>
+  <url>
     <loc>/reference/check_consistent.html</loc>
+  </url>
+  <url>
+    <loc>/reference/check_date.html</loc>
   </url>
   <url>
     <loc>/reference/check_integer.html</loc>
@@ -25,7 +37,16 @@
     <loc>/reference/check_numeric.html</loc>
   </url>
   <url>
+    <loc>/reference/col_syms.html</loc>
+  </url>
+  <url>
     <loc>/reference/doc_formals.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ensyms2.html</loc>
+  </url>
+  <url>
+    <loc>/reference/escalate.html</loc>
   </url>
   <url>
     <loc>/reference/escalateWarnings.html</loc>
@@ -34,10 +55,16 @@
     <loc>/reference/fix_unqualified_fns.html</loc>
   </url>
   <url>
+    <loc>/reference/get_fn_args.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_fn_name.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/optional_fn.html</loc>
   </url>
   <url>
     <loc>/reference/pipe.html</loc>
@@ -47,5 +74,38 @@
   </url>
   <url>
     <loc>/reference/resolve_missing.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_group.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_group_compare.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_group_count.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_group_formula.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_group_modify.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_group_nest.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_grp_s3.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_grps.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_has_groups.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_subgroup_count.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_subgroup_nest.html</loc>
   </url>
 </urlset>

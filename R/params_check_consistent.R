@@ -1,11 +1,10 @@
-# pos = 1:10
-# n = 10:1
-# neg = n+pos
-# check_consistent(pos=n-neg, neg=n-pos, n=pos+neg)
-# check_consistent(pos=n-neg, neg=n-pos, n=pos+neg, n>pos, n>neg, x=pos+neg)
 #' Check function parameters are conform to a set of rules
 #' 
-#' 
+#' If the parameters of a function are given in some combination but have
+#' an interdependency (e.g. different parameterisations of a probability
+#' distribution) or a constraint (like `x>0`) this function can simulataneously
+#' check all interrelations are satisfied and report on all the not
+#' conformant features of the parameters.
 #'
 #' @param ... a set of rules to check either as `x=y+z`, or `x>y`. Single `=`
 #'   assignment is checked for equality using `identical` otherwise the
@@ -16,9 +15,11 @@
 #'
 #' @return nothing, throws an informative error if the checks fail.
 #' @export
+#' 
+#' @concept params_check
 #'
 #' @examples
-#' testfn = function(pos=NULL, neg=NULL, n=NULL) {
+#' testfn = function(pos, neg, n) {
 #'   check_consistent(pos=n-neg, neg=n-pos, n=pos+neg, n>pos, n>neg)
 #' }
 #' 
@@ -32,7 +33,7 @@ check_consistent = function(..., .env = rlang::caller_env()) {
     # i = 1
     rhs = format(exprs[[i]])
     focus = names(exprs)[[i]]
-    if (focus != "") tmp = env[[focus]] else tmp = NaN
+    tmp = if (focus != "") env[[focus]] else NaN
     tmp2 = try( eval(exprs[[i]], env), silent = TRUE )
     if (inherits(tmp2, "try-error")) 
       errors = c(errors,sprintf("error '%s' evaluating constraint: '%s'", attr(tmp2,"condition")$message, rhs))
@@ -47,5 +48,6 @@ check_consistent = function(..., .env = rlang::caller_env()) {
         errors = c(errors,sprintf("constraint '%s = %s' is not met.", focus, rhs))
     }
   }
-  if (length(errors) > 0) stop(paste0(1:length(errors), ") ", errors,collapse = "\n"))
+  
+  if (length(errors) > 0) stop(paste0(1:length(errors), ") ", errors,collapse = "\n"), call.=FALSE)
 }

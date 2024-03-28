@@ -24,7 +24,7 @@
 #' 
 #' testfn2(mean)
 #' testfn2(utils::head)
-#' # this is quite slow for some reason: testfn2(stats::quantile)
+#' testfn2(testfn2)
 #' 
 #' # detecting the name of a calling function, an unusual use case as this is
 #' # normally known to the user.
@@ -37,16 +37,26 @@
 #' testfn()
 get_fn_name = function(fn = rlang::caller_fn(), fmt="%s", collapse="/") {
   if (is.null(fn)) return("<unknown>")
-  fnenv= rlang::fn_env(fn)
-  fns = as.character(utils::lsf.str(envir=fnenv))
-  matches = sapply(fns, function(x) isTRUE(all.equal(get(x,envir = fnenv),fn)))
+
+  # match the function to functions in its calling environment by its hash code.  
+  fnenv = as.list(rlang::fn_env(fn))
+  fnenv = fnenv[sapply(fnenv,is.function)]
+  fndigest = suppressWarnings(lapply(fnenv, digest::digest))
+  matches = sapply(fndigest, function(x) isTRUE(all.equal(x,digest::digest(fn))))
+  fnenv = fnenv[matches]
+  
   if (any(matches)) {
-    tmp = trimws(fns[matches])
+    
+    ns = stringr::str_remove(lapply(lapply(fnenv,rlang::fn_env),rlang::env_name),"^namespace:")
+    tmp = trimws(ifelse(!ns %in% c("global","base",""), sprintf("%s::%s",ns,names(fnenv)), names(fnenv)))
     ok = stringr::str_detect(tmp, "^([a-zA-Z_]+::){0,1}[a-zA-Z_][a-zA-Z0-9_]+$")
     tmp[!ok] = paste0("`",tmp[!ok],"`")
     tmp = sprintf(fmt,tmp)
-    if (!is.null(collapse)) tmp = paste0(tmp,collapse = "/")
+    if (!is.null(collapse)) tmp = paste0(tmp,collapse = collapse)
     return(tmp)
+    
   }
   return("<unknown>")
 }
+
+

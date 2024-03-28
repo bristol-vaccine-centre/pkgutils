@@ -6,6 +6,8 @@
 #' @return nothing. called for side effects. throws error if not all variables can be coerced.
 #' @export
 #'
+#' @concept params_check
+#'
 #' @examples
 #' a = c(1:4L)
 #' b = c("1",NA,"3.3")
@@ -17,10 +19,10 @@
 #' try(check_numeric(c,d, mean))
 check_numeric = function(..., .message="`{param}` is non-numeric ({err}).", .env = rlang::caller_env()) {
   predicate = ~ is.numeric(.x)
-  convert = function(tmp) {
+  convert = function(tmp, ...) {
     x = tryCatch(
       as.numeric(tmp), 
-      error = function(e) stop("error casting to numeric"),
+      error = function(e) stop("error casting to numeric: ",e$message),
       warning = function(w) stop("non numeric format")
     )
     return(x)

@@ -2,24 +2,17 @@ url: ~
 template:
   bootstrap: 5
 reference:
-- title: "Code manipulation functions"
-  desc: >
-    Functions for fixing code issues and generating code
-  contents: 
-  - fix_unqualified_fns
-  - doc_formals
-- title: "Checking inputs"
-  desc: "Functions for making sure that function inputs are consistent"
+- title: "Column grouping"
+  desc: "the `var_group` framework helps build functions that contain multiple column groups"
   contents:
-  - recycle
-  - check_consistent
-  - resolve_missing
-  - check_integer
-  - check_numeric
+  - has_concept("var_group")
+- title: "Validating inputs"
+  desc: "Functions for making sure that function inputs are consistent, and handling missing values"
+  contents:
+  - has_concept("params_check")
 - title: "Others"
   desc: "Miscellaneous"
   contents:
-  - get_fn_name
-  - escalateWarnings
+  - lacks_concepts(c("var_group","params_check"))
 
 

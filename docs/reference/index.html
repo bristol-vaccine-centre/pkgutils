@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">pkgutils</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9005</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +20,12 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/consistency.html">Consistency checking with pkgutils</a>
+  </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -41,9 +47,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="code-manipulation-functions">Code manipulation functions<a class="anchor" aria-label="anchor" href="#code-manipulation-functions"></a></h2>
+      <h2 id="column-grouping">Column grouping<a class="anchor" aria-label="anchor" href="#column-grouping"></a></h2>
       
-      <p class="section-desc"></p><p>Functions for fixing code issues and generating code</p>
+      <p class="section-desc"></p><p>the <code>var_group</code> framework helps build functions that contain multiple column groups</p>
 
       
     </div><div id="" class="section level2">
@@ -53,19 +59,73 @@
 
       <dl><dt>
           
-          <code><a href="fix_unqualified_fns.html">fix_unqualified_fns()</a></code> 
+          <code><a href="as.var_grp_df.html">as.var_grp_df()</a></code> 
         </dt>
-        <dd>Fix errors introduced in package creation by forgetting to qualify
-namespaces.</dd>
+        <dd>The <code>var_grp_df</code> dataframe subtype</dd>
       </dl><dl><dt>
           
-          <code><a href="doc_formals.html">doc_formals()</a></code> 
+          <code><a href="col_syms.html">col_syms()</a></code> 
         </dt>
-        <dd>Document default formal parameters in a function</dd>
+        <dd>Column names as symbols</dd>
+      </dl><dl><dt>
+          
+          <code><a href="ensyms2.html">ensyms2()</a></code> 
+        </dt>
+        <dd>Convert a parameter into a list of symbols</dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_group.html">var_group()</a></code> 
+        </dt>
+        <dd>Extract a definition of column groups from function parameters</dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_group_compare.html">var_group_compare()</a></code> 
+        </dt>
+        <dd>Cross compare subgroups of data to each other</dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_group_count.html">var_group_count()</a></code> 
+        </dt>
+        <dd>The number of major groups (<code>z</code> categories) in a <code>var_grp_df</code></dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_group_formula.html">var_group_formula()</a></code> 
+        </dt>
+        <dd>Export <code>var_group</code> metadata as a formula</dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_group_modify.html">var_group_modify()</a></code> 
+        </dt>
+        <dd>Apply a function to each <code>z</code> group using <code>group_modify()</code></dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_group_nest.html">var_group_nest()</a></code> 
+        </dt>
+        <dd>Nest a <code>var_grp_df</code> by the <code>z</code> columns</dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_grps.html">var_grps()</a></code> 
+        </dt>
+        <dd>Extract grouping info frm a <code>var_grp_df</code></dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_has_groups.html">var_has_groups()</a></code> 
+        </dt>
+        <dd>Does this <code>var_grp_df</code> have more than one major group?</dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_subgroup_count.html">var_subgroup_count()</a></code> 
+        </dt>
+        <dd>The number of major and sub groups (<code>z</code> and <code>y</code> categories) in a <code>var_grp_df</code></dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_subgroup_nest.html">var_subgroup_nest()</a></code> 
+        </dt>
+        <dd>Nest a <code>var_grp_df</code> by the <code>z</code> and <code>y</code> columns</dd>
       </dl></div><div class="section level2">
-      <h2 id="checking-inputs">Checking inputs<a class="anchor" aria-label="anchor" href="#checking-inputs"></a></h2>
+      <h2 id="validating-inputs">Validating inputs<a class="anchor" aria-label="anchor" href="#validating-inputs"></a></h2>
       
-      <p class="section-desc"></p><p>Functions for making sure that function inputs are consistent</p>
+      <p class="section-desc"></p><p>Functions for making sure that function inputs are consistent, and handling missing values</p>
 
       
     </div><div id="" class="section level2">
@@ -74,20 +134,15 @@ namespaces.</dd>
       
 
       <dl><dt>
-          
-          <code><a href="recycle.html">recycle()</a></code> 
-        </dt>
-        <dd>Strictly recycle function parameters</dd>
-      </dl><dl><dt>
           
           <code><a href="check_consistent.html">check_consistent()</a></code> 
         </dt>
         <dd>Check function parameters are conform to a set of rules</dd>
       </dl><dl><dt>
           
-          <code><a href="resolve_missing.html">resolve_missing()</a></code> 
+          <code><a href="check_date.html">check_date()</a></code> 
         </dt>
-        <dd>Resolve missing values in function parameters</dd>
+        <dd>Checks a set of variables can be coerced to a date and coerces them</dd>
       </dl><dl><dt>
           
           <code><a href="check_integer.html">check_integer()</a></code> 
@@ -98,6 +153,16 @@ namespaces.</dd>
           <code><a href="check_numeric.html">check_numeric()</a></code> 
         </dt>
         <dd>Checks a set of variables can be coerced to numeric and coerces them</dd>
+      </dl><dl><dt>
+          
+          <code><a href="recycle.html">recycle()</a></code> 
+        </dt>
+        <dd>Strictly recycle function parameters</dd>
+      </dl><dl><dt>
+          
+          <code><a href="resolve_missing.html">resolve_missing()</a></code> 
+        </dt>
+        <dd>Resolve missing values in function parameters and check consistency</dd>
       </dl></div><div class="section level2">
       <h2 id="others">Others<a class="anchor" aria-label="anchor" href="#others"></a></h2>
       
@@ -111,14 +176,29 @@ namespaces.</dd>
 
       <dl><dt>
           
+          <code><a href="escalate.html">escalate()</a></code> 
+        </dt>
+        <dd>Cause warnings to create an error</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_fn_args.html">get_fn_args()</a></code> 
+        </dt>
+        <dd>Fully evaluate the arguments from a function call as a named list.</dd>
+      </dl><dl><dt>
+          
           <code><a href="get_fn_name.html">get_fn_name()</a></code> 
         </dt>
         <dd>Get the name of a function</dd>
       </dl><dl><dt>
           
-          <code><a href="escalateWarnings.html">escalateWarnings()</a></code> 
+          <code><a href="optional_fn.html">optional_fn()</a></code> 
         </dt>
-        <dd>Cause warnings to create an error</dd>
+        <dd>Get an optional function without triggering a CRAN warning</dd>
+      </dl><dl><dt>
+          
+          <code><a href="var_grp_s3.html">glimpse.var_grp_df()</a></code> <code><a href="var_grp_s3.html">format(<i>&lt;var_grp_df&gt;</i>)</a></code> <code><a href="var_grp_s3.html">print(<i>&lt;var_grp_df&gt;</i>)</a></code> <code><a href="var_grp_s3.html">is.var_grp_df()</a></code> 
+        </dt>
+        <dd><code>var_grp_df</code> S3 Methods</dd>
       </dl></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>

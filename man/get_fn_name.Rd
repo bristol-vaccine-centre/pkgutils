@@ -34,7 +34,7 @@ testfn2 = function(fn) {
 
 testfn2(mean)
 testfn2(utils::head)
-# this is quite slow for some reason: testfn2(stats::quantile)
+testfn2(testfn2)
 
 # detecting the name of a calling function, an unusual use case as this is
 # normally known to the user.
