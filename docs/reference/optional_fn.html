@@ -96,20 +96,12 @@ but a fallback can be used instead.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># use openSSL if installed:</span></span></span>
-<span class="r-in"><span><span class="va">fn</span> <span class="op">=</span> <span class="fu">optional_fn</span><span class="op">(</span><span class="st">"openssl"</span>, <span class="st">"md5"</span>, alt <span class="op">=</span> <span class="fu">digest</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/digest/man/digest.html" class="external-link">digest</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">fn</span> <span class="op">=</span> <span class="fu">optional_fn</span><span class="op">(</span><span class="st">"openssl"</span>, <span class="st">"md5"</span>, alt <span class="op">=</span> <span class="op">~</span> <span class="fu">digest</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/digest/man/digest.html" class="external-link">digest</a></span><span class="op">(</span><span class="va">.x</span>, <span class="st">"md5"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fu">fn</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/raw.html" class="external-link">as.raw</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "5289df737df57326fcdd22597afb1fac"</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">fn2</span> <span class="op">=</span> <span class="fu">optional_fn</span><span class="op">(</span><span class="st">"asdasdadsda::asdasdasd"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in optional_fn("asdasdadsda::asdasdasd"):</span> argument "name" is missing, with no default</span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="co"># block to execute if asdasdadsda::asdasdasd() is available</span></span></span>
-<span class="r-in"><span>  <span class="fu">fn2</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span><span class="op">)</span> </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in fn2() : could not find function "fn2"</span>
-<span class="r-in"><span><span class="co"># add silent=TRUE to hide error message</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># this function does not exists and so the alternative is used instead.</span></span></span>
+<span class="r-in"><span><span class="co">#' # this function does not exists and so the alternative is used instead.</span></span></span>
 <span class="r-in"><span><span class="va">fn3</span> <span class="op">=</span> <span class="fu">optional_fn</span><span class="op">(</span><span class="st">"asdasdadsda::asdasdasd"</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"formula alternative"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">fn3</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> formula alternative</span>
